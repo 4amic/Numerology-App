@@ -1,0 +1,26 @@
+
+<h1>Numerology</h1>
+  <% if !@error.nil? %>
+  <p><%= @error %></p>
+<% end %>
+<form action="/" method="post">
+  
+<div>
+      <legend><span class="number">1</span> First Name </legend>
+    <input class="first" type="text" name="first_name"  />
+  </div>
+
+  <div>
+    <legend><span class="number">2</span> Last Name </legend> 
+    <input class="last" type="text" name="last_name" />
+  </div>
+
+  <div>
+<legend><span class="number">3</span> Birthdate </legend>
+    <input class="birthdate" name="birthdate" type="date" />
+  </div>
+
+  <div>
+    <input class="button" type="submit" />
+  </div>
+</form>
