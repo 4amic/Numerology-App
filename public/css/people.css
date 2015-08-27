@@ -1,11 +1,24 @@
+body {
+ text-align: center;   
+}
+
+p {
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+    font-size: 1.2em;
+    text-align: center;
+    width:70%; 
+        margin-left:15%; 
+        margin-right:15%
+}
+
 .new-person {
   padding: 20px;
-  background-color: #efefef;
+  background-color: #ffae23;
 }
 
 .edit-person {
   padding: 20px;  
-  background-color: #add8e6;
+  background-color: #f6223f;
 }
 
 h1 {
@@ -40,25 +53,17 @@ h1 {
   }
 
 .edit {
-    color: red;
+    color: #f6223f;
   }
 
 
-p {
-    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
-    font-size: 1.2em;
-    padding: 20px 20px;
-    text-align: center;
-    max-width: 500px;
-}
+
     
 form {
     max-width: 500px;
-    padding: 10px 20px;
-    background: #f4f7f8;
-    margin: 10px auto;
-    padding: 20px;
-    background: #f4f7f8;
+    padding: 10px 10px;
+    background: #fff;
+    margin: auto;
     border-radius: 8px;
     font-family: "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
 }
@@ -122,22 +127,21 @@ select{
 
 #delete{
     position: relative;
-    display: block;
     padding: 5px 5px;
     color: #FFF;
-    margin: 5px auto;
-    background: red;
+    margin: auto;
+    background: #f6223f;
     font-size: 1em;
     text-align: center;
     font-style: normal;
     width: 100%;
-    border: 1px solid darkred;
+    border: 1px solid #bc001a;
     border-width: 1px 1px 3px;
 
 }
 
 #delete:hover{
-    background: darkred;   
+    background: #bc001a;   
 }
 
 input[type="submit"],
@@ -162,3 +166,36 @@ input[type="button"]:hover
 {
     background: #109177;
 }
+
+    table.table-style-three {
+        font-family: "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+        font-size: 11px;
+        color: #333333;
+        border-width: 1px;
+        border-color: #3A3A3A;
+        border-collapse: collapse;
+        width:70%; 
+        margin-left:15%; 
+        margin-right:15%;
+    }
+    table.table-style-three th {
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #Fa7688;
+        background-color: #f6223f;
+        color: #ffffff;
+    }
+    table.table-style-three tr:hover td {
+        cursor: pointer;
+    }
+    table.table-style-three tr:nth-child(even) td{
+        background-color: #F7CFCF;
+    }
+    table.table-style-three td {
+        border-width: 1px;
+        padding: 8px;
+        border-style: solid;
+        border-color: #Fa7688;
+        background-color: #ffffff;
+    }
