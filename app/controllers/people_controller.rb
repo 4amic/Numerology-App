@@ -10,14 +10,26 @@ get '/people/new' do
 end
 
 post '/people' do
-  if params[:birthdate].include?("-")
-    birthdate = params[:birthdate]
-  else
-    birthdate = Date.strptime(params[:birthdate], "%m%d%Y")
-  end
-  
-  person = Person.create(first_name: params[:first_name], last_name: params[:last_name], birthdate: birthdate)
-  redirect "/people/#{person.id}"
+if params[:birthdate].empty?
+birthdate = nil
+elsif params[:birthdate].include?("-")
+birthdate = params[:birthdate]
+else
+birthdate = Date.strptime(params[:birthdate], "%m%d%y")
+end
+
+@person = Person.create(first_name: params[:first_name], last_name: params[:last_name], birthdate: birthdate)
+
+if @person.valid?	
+@person.save
+redirect "/people/#{@person.id}"
+else
+@errors = ''
+@person.errors.full_messages.each do |msg|
+	@errors = "#{@errors} #{msg}.\n"
+end
+erb :"/people/new"
+end
 end
 
 get '/people/:id/edit' do
@@ -26,12 +38,19 @@ get '/people/:id/edit' do
 end
 
 put '/people/:id' do
-  person = Person.find(params[:id])
-  person.first_name = params[:first_name]
-  person.last_name = params[:last_name]
-  person.birthdate = params[:birthdate]
-  person.save
-  redirect "/people/#{person.id}"
+  @person = Person.find(params[:id])
+  @person.first_name = params[:first_name]
+  @person.last_name = params[:last_name]
+  @person.birthdate = params[:birthdate]
+  if @person.valid?
+    @person.save
+    redirect "/people/#{@person.id}"
+  else
+    @person.errors.full_messages.each do |msg|
+      @errors = "#{@errors} #{msg}."
+    end
+    erb :"/people/edit"    
+  end
 end
 
 delete '/people/:id' do
